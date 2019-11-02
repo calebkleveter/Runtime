@@ -22,15 +22,15 @@
 
 import Foundation
 
-struct ProtocolDescriptor {
-    var isaPointer: Int
-    var mangledName: UnsafeMutablePointer<CChar>
-    var inheritedProtocolsList: Int
-    var requiredInstanceMethods: Int
-    var requiredClassMethods: Int
-    var optionalInstanceMethods: Int
-    var optionalClassMethods: Int
-    var instanceProperties: Int
-    var protocolDescriptorSize: Int32
-    var flags: Int32
+public struct ProtocolDescriptor {
+    public var isaPointer: Int
+    public var mangledName: UnsafeMutablePointer<CChar>
+    public var inheritedProtocolsList: Int
+    public var requiredInstanceMethods: Int
+    public var requiredClassMethods: Int
+    public var optionalInstanceMethods: Int
+    public var optionalClassMethods: Int
+    public var instanceProperties: Int
+    public var protocolDescriptorSize: Int32
+    public var flags: Int32
 }

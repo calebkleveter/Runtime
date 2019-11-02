@@ -22,7 +22,7 @@
 
 import Foundation
 
-func withValuePointer<Value, Result>(
+public func withValuePointer<Value, Result>(
     of value: inout Value,
     _ body: (UnsafeMutableRawPointer) throws -> Result) throws -> Result {
     
@@ -40,7 +40,7 @@ func withValuePointer<Value, Result>(
     }
 }
 
-func withClassValuePointer<Value, Result>(
+public func withClassValuePointer<Value, Result>(
     of value: inout Value,
     _ body: (UnsafeMutableRawPointer) throws -> Result) throws -> Result {
     return try withUnsafePointer(to: &value) {
@@ -49,7 +49,7 @@ func withClassValuePointer<Value, Result>(
     }
 }
 
-func withExistentialValuePointer<Value, Result>(
+public func withExistentialValuePointer<Value, Result>(
     of value: inout Value,
     _ body: (UnsafeMutableRawPointer) throws -> Result) throws -> Result {
     return try withUnsafePointer(to: &value) {
@@ -68,7 +68,7 @@ func withExistentialValuePointer<Value, Result>(
     }
 }
 
-var existentialHeaderSize: Int {
+public var existentialHeaderSize: Int {
     if is64Bit {
         return 16
     } else {
@@ -76,6 +76,6 @@ var existentialHeaderSize: Int {
     }
 }
 
-var is64Bit: Bool {
+public var is64Bit: Bool {
     return MemoryLayout<Int>.size == 8
 }

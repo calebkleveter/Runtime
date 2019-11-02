@@ -22,11 +22,15 @@
 
 import Foundation
 
-struct StructMetadata: NominalMetadataType {
+public struct StructMetadata: NominalMetadataType {
     
-    var pointer: UnsafeMutablePointer<StructMetadataLayout>
-    
-    mutating func toTypeInfo() -> TypeInfo {
+    public var pointer: UnsafeMutablePointer<StructMetadataLayout>
+
+    public init(pointer: UnsafeMutablePointer<StructMetadataLayout>) {
+        self.pointer = pointer
+    }
+
+    public mutating func toTypeInfo() -> TypeInfo {
         var info = TypeInfo(metadata: self)
         info.properties = properties()
         info.mangledName = mangledName()

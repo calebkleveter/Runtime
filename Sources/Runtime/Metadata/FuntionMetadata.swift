@@ -22,11 +22,15 @@
 
 import Foundation
 
-struct FunctionMetadata: MetadataType {
+public struct FunctionMetadata: MetadataType {
     
-    var pointer: UnsafeMutablePointer<FunctionMetadataLayout>
-    
-    func info() -> FunctionInfo {
+   public var pointer: UnsafeMutablePointer<FunctionMetadataLayout>
+
+    public init(pointer: UnsafeMutablePointer<FunctionMetadataLayout>) {
+        self.pointer = pointer
+    }
+
+    public func info() -> FunctionInfo {
         let (numberOfArguments, argumentTypes, returnType) = argumentInfo()
         return FunctionInfo(numberOfArguments: numberOfArguments,
                             argumentTypes: argumentTypes,
@@ -34,7 +38,7 @@ struct FunctionMetadata: MetadataType {
                             throws: `throws`())
     }
     
-    private func argumentInfo() -> (Int, [Any.Type], Any.Type) {
+    public func argumentInfo() -> (Int, [Any.Type], Any.Type) {
         let n = numberArguments()
         let argTypeBuffer = pointer.pointee.argumentVector.vector(n: n + 1)
         
@@ -44,11 +48,11 @@ struct FunctionMetadata: MetadataType {
         return (n, argTypes, resultType)
     }
     
-    private func numberArguments() -> Int {
+    public func numberArguments() -> Int {
         return pointer.pointee.flags & 0x00FFFFFF
     }
     
-    private func `throws`() -> Bool {
+    public func `throws`() -> Bool {
         return pointer.pointee.flags & 0x01000000 != 0
     }
 }

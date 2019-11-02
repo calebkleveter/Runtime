@@ -22,19 +22,23 @@
 
 import Foundation
 
-struct ClassMetadata: NominalMetadataType {
+public struct ClassMetadata: NominalMetadataType {
     
-    var pointer: UnsafeMutablePointer<ClassMetadataLayout>
-    
-    var hasResilientSuperclass: Bool {
+    public var pointer: UnsafeMutablePointer<ClassMetadataLayout>
+
+    public init(pointer: UnsafeMutablePointer<ClassMetadataLayout>) {
+        self.pointer = pointer
+    }
+
+    public var hasResilientSuperclass: Bool {
         return (0x4000 & pointer.pointee.classFlags) != 0
     }
     
-    var areImmediateMembersNegative: Bool {
+    public var areImmediateMembersNegative: Bool {
         return (0x800 & pointer.pointee.classFlags) != 0
     }
     
-    var genericArgumentOffset: Int {
+    public var genericArgumentOffset: Int {
         let typeDescriptor = pointer.pointee.typeDescriptor
         
         if !hasResilientSuperclass {
@@ -58,7 +62,7 @@ struct ClassMetadata: NominalMetadataType {
         fatalError("Cannot get the `genericArgumentOffset` for classes with a resilient superclass")
     }
     
-    func superClassMetadata() -> ClassMetadata? {
+    public func superClassMetadata() -> ClassMetadata? {
         let superClass = pointer.pointee.superClass
         // type comparison directly to NSObject.self does not work.
         // just compare the type name instead.
@@ -69,7 +73,7 @@ struct ClassMetadata: NominalMetadataType {
         }
     }
     
-    mutating func toTypeInfo() -> TypeInfo {
+    public mutating func toTypeInfo() -> TypeInfo {
         var info = TypeInfo(metadata: self)
         info.mangledName = mangledName()
         info.properties = properties()

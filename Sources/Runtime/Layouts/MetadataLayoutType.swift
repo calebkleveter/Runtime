@@ -22,11 +22,11 @@
 
 import Foundation
 
-protocol MetadataLayoutType {
+public protocol MetadataLayoutType {
     var _kind: Int { get set }
 }
 
-protocol NominalMetadataLayoutType: MetadataLayoutType {
+public protocol NominalMetadataLayoutType: MetadataLayoutType {
     associatedtype Descriptor: TypeDescriptor
     var typeDescriptor: UnsafeMutablePointer<Descriptor> { get set }
 }

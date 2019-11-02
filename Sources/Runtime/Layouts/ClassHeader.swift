@@ -22,15 +22,15 @@
 
 import Foundation
 
-struct ClassHeader {
-    var isaPointer: Int
-    var strongRetainCounts: Int32
-    var weakRetainCounts: Int32
+public struct ClassHeader {
+    public var isaPointer: Int
+    public var strongRetainCounts: Int32
+    public var weakRetainCounts: Int32
 }
 
 extension ClassHeader {
     
-    static func size() -> Int {
+    public static func size() -> Int {
         return MemoryLayout<ClassHeader>.size
     }
 }

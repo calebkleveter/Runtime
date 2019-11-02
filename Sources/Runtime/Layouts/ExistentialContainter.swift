@@ -22,20 +22,20 @@
 
 import Foundation
 
-struct ExistentialContainer {
-    let buffer: ExistentialContainerBuffer
-    let type: Any.Type
-    let witnessTable: Int
+public struct ExistentialContainer {
+    public let buffer: ExistentialContainerBuffer
+    public let type: Any.Type
+    public let witnessTable: Int
 }
 
-struct ExistentialContainerBuffer {
-    let buffer1: Int
-    let buffer2: Int
-    let buffer3: Int
+public struct ExistentialContainerBuffer {
+    public let buffer1: Int
+    public let buffer2: Int
+    public let buffer3: Int
 }
 
 extension ExistentialContainerBuffer {
-    static func size() -> Int {
+    public static func size() -> Int {
         return MemoryLayout<ExistentialContainerBuffer>.size
     }
 }

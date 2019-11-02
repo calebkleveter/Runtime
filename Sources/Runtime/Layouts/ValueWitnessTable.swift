@@ -20,26 +20,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-struct ValueWitnessTable {
-    var initializeBufferWithCopyOfBuffer: UnsafeRawPointer
-    var destroy: UnsafeRawPointer
-    var initializeWithCopy: UnsafeRawPointer
-    var assignWithCopy: UnsafeRawPointer
-    var initializeWithTake: UnsafeRawPointer
-    var assignWithTake: UnsafeRawPointer
-    var getEnumTagSinglePayload: UnsafeRawPointer
-    var storeEnumTagSinglePayload: UnsafeRawPointer
-    var size: Int
-    var stride: Int
-    var flags: Int
+public struct ValueWitnessTable {
+    public var initializeBufferWithCopyOfBuffer: UnsafeRawPointer
+    public var destroy: UnsafeRawPointer
+    public var initializeWithCopy: UnsafeRawPointer
+    public var assignWithCopy: UnsafeRawPointer
+    public var initializeWithTake: UnsafeRawPointer
+    public var assignWithTake: UnsafeRawPointer
+    public var getEnumTagSinglePayload: UnsafeRawPointer
+    public var storeEnumTagSinglePayload: UnsafeRawPointer
+    public var size: Int
+    public var stride: Int
+    public var flags: Int
 }
 
-struct ValueWitnessFlags {
-    static let alignmentMask = 0x0000FFFF
-    static let isNonPOD = 0x00010000
-    static let isNonInline = 0x00020000
-    static let hasExtraInhabitants = 0x00040000
-    static let hasSpareBits = 0x00080000
-    static let isNonBitwiseTakable = 0x00100000
-    static let hasEnumWitnesses = 0x00200000
+public struct ValueWitnessFlags {
+    public static let alignmentMask = 0x0000FFFF
+    public static let isNonPOD = 0x00010000
+    public static let isNonInline = 0x00020000
+    public static let hasExtraInhabitants = 0x00040000
+    public static let hasSpareBits = 0x00080000
+    public static let isNonBitwiseTakable = 0x00100000
+    public static let hasEnumWitnesses = 0x00200000
 }

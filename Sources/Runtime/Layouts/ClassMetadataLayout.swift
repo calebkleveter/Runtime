@@ -22,19 +22,19 @@
 
 import Foundation
 
-struct ClassMetadataLayout: NominalMetadataLayoutType {
-    var _kind: Int // isaPointer for classes
-    var superClass: Any.Type
-    var objCRuntimeReserve1: Int
-    var objCRuntimeReserve2: Int
-    var rodataPointer: Int
-    var classFlags: Int32
-    var instanceAddressPoint: UInt32
-    var instanceSize: UInt32
-    var instanceAlignmentMask: UInt16
-    var reserved: UInt16
-    var classSize: UInt32
-    var classAddressPoint: UInt32
-    var typeDescriptor: UnsafeMutablePointer<ClassTypeDescriptor>
-    var iVarDestroyer: UnsafeRawPointer
+public struct ClassMetadataLayout: NominalMetadataLayoutType {
+    public var _kind: Int // isaPointer for classes
+    public var superClass: Any.Type
+    public var objCRuntimeReserve1: Int
+    public var objCRuntimeReserve2: Int
+    public var rodataPointer: Int
+    public var classFlags: Int32
+    public var instanceAddressPoint: UInt32
+    public var instanceSize: UInt32
+    public var instanceAlignmentMask: UInt16
+    public var reserved: UInt16
+    public var classSize: UInt32
+    public var classAddressPoint: UInt32
+    public var typeDescriptor: UnsafeMutablePointer<ClassTypeDescriptor>
+    public var iVarDestroyer: UnsafeRawPointer
 }

@@ -24,7 +24,7 @@ import Foundation
 
 extension Array where Element == String {
     
-    static func from(pointer: UnsafePointer<CChar>, n: Int) -> [String] {
+    public static func from(pointer: UnsafePointer<CChar>, n: Int) -> [String] {
         var pointer = pointer
         var result = [String]()
         

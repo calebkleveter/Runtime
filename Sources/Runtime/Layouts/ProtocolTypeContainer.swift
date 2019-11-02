@@ -22,7 +22,7 @@
 
 import Foundation
 
-struct ProtocolTypeContainer {
-    let type: Any.Type
-    let witnessTable: Int
+public struct ProtocolTypeContainer {
+    public let type: Any.Type
+    public let witnessTable: Int
 }

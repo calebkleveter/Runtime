@@ -22,6 +22,6 @@
 
 import Foundation
 
-protocol TypeInfoConvertible {
+public protocol TypeInfoConvertible {
     mutating func toTypeInfo() -> TypeInfo
 }

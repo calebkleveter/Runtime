@@ -22,7 +22,7 @@
 
 import Foundation
 
-struct EnumMetadataLayout: NominalMetadataLayoutType {
-    var _kind: Int
-    var typeDescriptor: UnsafeMutablePointer<EnumTypeDescriptor>
+public struct EnumMetadataLayout: NominalMetadataLayoutType {
+    public var _kind: Int
+    public var typeDescriptor: UnsafeMutablePointer<EnumTypeDescriptor>
 }

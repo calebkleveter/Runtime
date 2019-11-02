@@ -22,7 +22,7 @@
 
 import Foundation
 
-struct StructMetadataLayout: NominalMetadataLayoutType {
-    var _kind: Int
-    var typeDescriptor: UnsafeMutablePointer<StructTypeDescriptor>
+public struct StructMetadataLayout: NominalMetadataLayoutType {
+    public var _kind: Int
+    public var typeDescriptor: UnsafeMutablePointer<StructTypeDescriptor>
 }

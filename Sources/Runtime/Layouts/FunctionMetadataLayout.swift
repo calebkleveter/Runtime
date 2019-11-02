@@ -22,8 +22,8 @@
 
 import Foundation
 
-struct FunctionMetadataLayout: MetadataLayoutType {
-    var _kind: Int
-    var flags: Int
-    var argumentVector: Vector<Any.Type>
+public struct FunctionMetadataLayout: MetadataLayoutType {
+    public var _kind: Int
+    public var flags: Int
+    public var argumentVector: Vector<Any.Type>
 }

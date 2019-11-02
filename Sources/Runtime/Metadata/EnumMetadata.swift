@@ -22,11 +22,15 @@
 
 import Foundation
 
-struct EnumMetadata: NominalMetadataType {
+public struct EnumMetadata: NominalMetadataType {
     
-    var pointer: UnsafeMutablePointer<EnumMetadataLayout>
+    public var pointer: UnsafeMutablePointer<EnumMetadataLayout>
 
-    mutating func cases() -> [Case] {
+    public init(pointer: UnsafeMutablePointer<EnumMetadataLayout>) {
+        self.pointer = pointer
+    }
+
+    public mutating func cases() -> [Case] {
         let fieldDescriptor = pointer.pointee.typeDescriptor.pointee
             .fieldDescriptor
             .advanced()
@@ -41,7 +45,7 @@ struct EnumMetadata: NominalMetadataType {
         }
     }
     
-    mutating func toTypeInfo() -> TypeInfo {
+    public mutating func toTypeInfo() -> TypeInfo {
         var info = TypeInfo(metadata: self)
         info.mangledName = mangledName()
         info.cases = cases()

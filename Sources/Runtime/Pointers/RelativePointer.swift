@@ -22,14 +22,14 @@
 
 import Foundation
 
-struct RelativePointer<Offset: FixedWidthInteger, Pointee> {
-    var offset: Offset
+public struct RelativePointer<Offset: FixedWidthInteger, Pointee> {
+    public var offset: Offset
     
-    mutating func pointee() -> Pointee {
+    public mutating func pointee() -> Pointee {
         return advanced().pointee
     }
     
-    mutating func advanced() -> UnsafeMutablePointer<Pointee> {
+    public mutating func advanced() -> UnsafeMutablePointer<Pointee> {
         let offset = self.offset
         return withUnsafePointer(to: &self) { p in
             return p.raw.advanced(by: numericCast(offset))
@@ -40,7 +40,7 @@ struct RelativePointer<Offset: FixedWidthInteger, Pointee> {
 }
 
 extension RelativePointer: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         return "\(offset)"
     }
 }

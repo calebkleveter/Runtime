@@ -22,11 +22,11 @@
 
 import Foundation
 
-struct Vector<Element> {
+public struct Vector<Element> {
     
-    var element: Element
+    public var element: Element
     
-    mutating func vector(n: Int) -> UnsafeBufferPointer<Element> {
+    public mutating func vector(n: Int) -> UnsafeBufferPointer<Element> {
         return withUnsafePointer(to: &self) {
             $0.withMemoryRebound(to: Element.self, capacity: 1) { start in
                 return start.buffer(n: n)
@@ -34,7 +34,7 @@ struct Vector<Element> {
         }
     }
     
-    mutating func element(at i: Int) -> UnsafeMutablePointer<Element> {
+    public mutating func element(at i: Int) -> UnsafeMutablePointer<Element> {
         return withUnsafePointer(to: &self) {
             return $0.raw.assumingMemoryBound(to: Element.self).advanced(by: i).mutable
         }
